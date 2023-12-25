@@ -1,0 +1,422 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={STAT 2450 Assignment 2},
+  pdfauthor={Tasneem Hoque (B00841761)},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{STAT 2450 Assignment 2}
+\author{Tasneem Hoque (B00841761)}
+\date{20-05-2022}
+
+\begin{document}
+\maketitle
+
+\hypertarget{notes}{%
+\subsection{Notes}\label{notes}}
+
+\hypertarget{personal-information}{%
+\subsubsection{Personal information}\label{personal-information}}
+
+Please fill up the header information (banner id, first and last name,
+and date of completion).
+
+This entire assignment (A2) is marked on a maximum of 20 points.
+
+{[}Note that regardless of this total. each assignment (i.e.~A1 to A7)
+will have the same weight in the final mark.{]}
+
+This assignment has 5 questions each worth 4 points.
+
+\hypertarget{question-1-4-points}{%
+\subsection{\texorpdfstring{Question 1 (\emph{4
+points})}{Question 1 (4 points)}}\label{question-1-4-points}}
+
+Use a ``for'' loop to evaluate the following sum, when x=.2.
+
+\[y=1-x+x^2-x^3 \ldots -x^{29}+x^{30}\]
+
+Hint: You will need to initialize the variable y, increment the value of
+y in the body of your for loop, then print the value of y when the loop
+is finished.
+
+Note that you can use a loop index (i) in the calculation of the new
+term to add to y. The generic term to add takes the form:
+
+\[(-1)^i  x^i\]
+
+and i must start with the value 0 and end with the value 30.
+
+Your code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y }\OtherTok{=} \DecValTok{0}\NormalTok{;}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{0}\SpecialCharTok{:}\DecValTok{30}\NormalTok{)\{}
+  \ControlFlowTok{if}\NormalTok{ (i}\SpecialCharTok{\%\%}\DecValTok{2}\NormalTok{)\{}
+\NormalTok{    y }\OtherTok{=}\NormalTok{ y }\SpecialCharTok{+} \DecValTok{2}\SpecialCharTok{\^{}}\NormalTok{i}
+\NormalTok{  \}}\ControlFlowTok{else}\NormalTok{\{}
+\NormalTok{    y }\OtherTok{=}\NormalTok{ y }\SpecialCharTok{{-}} \DecValTok{2}\SpecialCharTok{\^{}}\NormalTok{i}
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -715827883
+\end{verbatim}
+
+\hypertarget{question-2-4-points}{%
+\subsection{\texorpdfstring{Question 2 (\emph{4
+points})}{Question 2 (4 points)}}\label{question-2-4-points}}
+
+You will write a function called listdivisors that take a single
+argument variable, n and print a list of the divisors of n.
+
+When called with an integer argument, listdivisors(n) should return the
+vector v of divisors of the number n.~
+
+For example, the integer numbers that are divisors of the integer n=6
+(i.e.~that divide 6 with no remainder), are 1, 2, 3 and 6. Therefore,
+listdivisors(6) should print
+
+\begin{verbatim}
+1 2 3 6
+\end{verbatim}
+
+To write the body of your function, you will create a variable v which
+you can initialize as an empty vector. Then use a for loop to scan all
+integers i smaller or equal to n.~If the loop index divides n (use the
+modulo operator to check this), then add this value to the vector v.
+Otherwise dont do anything. Finally, when the loop is terminated, return
+the vector v.
+
+Apply this function to list the divisors of 40
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{listdivisors }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  y }\OtherTok{\textless{}{-}} \FunctionTok{seq\_len}\NormalTok{(x)}
+\NormalTok{  y[ x}\SpecialCharTok{\%\%}\NormalTok{y }\SpecialCharTok{==} \DecValTok{0}\NormalTok{ ]}
+\NormalTok{\}}
+
+
+\FunctionTok{listdivisors}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  1  2  5 10
+\end{verbatim}
+
+\hypertarget{question-3-4-points}{%
+\subsection{\texorpdfstring{Question 3 (\emph{4
+points})}{Question 3 (4 points)}}\label{question-3-4-points}}
+
+We use the function sample to generate a random vector ``x'' of 100
+integers sampled with replacement in the interval {[}15,132{]}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{250}\NormalTok{) }
+\NormalTok{x}\OtherTok{=}\FunctionTok{sample}\NormalTok{(}\DecValTok{15}\SpecialCharTok{:}\DecValTok{132}\NormalTok{,}\DecValTok{100}\NormalTok{,}\AttributeTok{replace=}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
+
+We want to use a `for' loop and the function `ifelse' to count the
+number of even integers and the number of odd integers in x.
+
+Initialize a counter variable named neven.
+
+Use a for loop to iterate over the elements of a vector x.
+
+Increment the value of neven by 1 if the current value of the loop index
+is even (or else increment the value by 0). Do not use if(), but use the
+ifelse function for this. The body of your loop should only contain one
+line of code that updates neven.
+
+When the loop is finished, print the number of even elements and the
+number of odd elements of x.
+
+Use the syntax : paste(``message'',variablename) to print the message:
+
+The number of even elements is:
+
+followed by the value of the counter variable neven.
+
+After this, compute the number of odd elements (use a substraction) in a
+variable called nodd, and print it. Use the message:
+
+The number of odd elements is:
+
+followed by the value of the variable nodd.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# initialize the value of the variable neven}
+\NormalTok{neven }\OtherTok{=} \DecValTok{0}
+\NormalTok{even }\OtherTok{=} \DecValTok{0}
+\CommentTok{\# use a for loop to loop over the elements of vector x}
+\CommentTok{\#for...\{}
+  \CommentTok{\# in the body of the for loop, use the function ifelse to add 1 to neven when i is even, and }
+  \CommentTok{\# add zero to neven if i is odd. The body of the loop should contain a single line of code.}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in}\NormalTok{ x)\{}
+  \FunctionTok{ifelse}\NormalTok{(i}\SpecialCharTok{\%\%}\DecValTok{2}\SpecialCharTok{==}\DecValTok{0}\NormalTok{,neven}\OtherTok{\textless{}{-}}\NormalTok{neven}\SpecialCharTok{+}\DecValTok{1}\NormalTok{,neven}\OtherTok{\textless{}{-}}\NormalTok{neven}\DecValTok{{-}0}\NormalTok{)}
+\NormalTok{\}}
+
+\CommentTok{\#\}}
+\CommentTok{\# print the first message and the value of neven }
+\FunctionTok{paste}\NormalTok{(}\StringTok{"The number of even elements is:"}\NormalTok{, neven)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "The number of even elements is: 53"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{paste}\NormalTok{(}\StringTok{"The number of even elements is:"}\NormalTok{, even)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "The number of even elements is: 0"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# use the length of vector x and neven to calculate the number (nodd) of odd elements}
+\NormalTok{nodd}\OtherTok{=} \FunctionTok{length}\NormalTok{(x)}\SpecialCharTok{{-}}\NormalTok{neven}
+\CommentTok{\# print the second message and the value of nodd}
+\FunctionTok{paste}\NormalTok{(}\StringTok{"The number of odd elements is:"}\NormalTok{, nodd)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "The number of odd elements is: 47"
+\end{verbatim}
+
+\hypertarget{question-4-4-points}{%
+\subsection{\texorpdfstring{Question 4 (\emph{4
+points})}{Question 4 (4 points)}}\label{question-4-4-points}}
+
+We generate a random 5x5 matrix whose entries are the numbers 1,2,
+\ldots{} 25, but in random positions, using the following code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{133}\NormalTok{) }\CommentTok{\#set the seed for the random number generator}
+\NormalTok{x}\OtherTok{=}\FunctionTok{matrix}\NormalTok{(}\FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{25}\NormalTok{), }\AttributeTok{byrow=}\NormalTok{T,}\AttributeTok{ncol=}\DecValTok{5}\NormalTok{) }\CommentTok{\#}
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]   25    6    4   17   13
+## [2,]   22    9    2   21    8
+## [3,]   23   18   24    1   12
+## [4,]   11   19   15    7    3
+## [5,]   16   20   14    5   10
+\end{verbatim}
+
+Complete the following code
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# we can store the dimension of the matrix in a vector dx of length 2:}
+\NormalTok{dx}\OtherTok{=}\FunctionTok{dim}\NormalTok{(x)}
+
+\CommentTok{\# use dx to print the number of rows of the matrix x:}
+\CommentTok{\# hint: this is the first element of dx}
+\NormalTok{dx[}\DecValTok{1}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# use dx to print the number of columns of the matrix x:}
+\CommentTok{\# hint: this is the second element of dx}
+\NormalTok{dx[}\DecValTok{2}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5
+\end{verbatim}
+
+Then, use two nested for loops (one, with index i, for the rows, one,
+with index j, for the columns) to loop over each position i,j in the
+matrix x, and, if the associated element x{[}i,j{]} is even, replace
+this matrix element by its square root, otherwise, if it is odd, replace
+it by its square.
+
+Note that you can use the elseif function to do this, something like:
+
+x{[}i,j{]}=ifelse(\ldots)
+
+For the loop bounds (i.e.~the number of rows and the number of columns),
+use the two elements of vector dx.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{dx[}\DecValTok{1}\NormalTok{]) \{}
+  \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{dx[}\DecValTok{2}\NormalTok{]) \{}
+    \ControlFlowTok{if}\NormalTok{ (x[i, j]}\SpecialCharTok{\%\%}\DecValTok{2} \SpecialCharTok{==} \DecValTok{0}\NormalTok{)\{}
+\NormalTok{      x[i, j] }\OtherTok{=} \FunctionTok{sqrt}\NormalTok{(x[i,j])}
+\NormalTok{    \} }\ControlFlowTok{else}\NormalTok{ \{}
+\NormalTok{      x[i,j] }\OtherTok{=}\NormalTok{ x[i,j]}\SpecialCharTok{\^{}}\DecValTok{2}
+\NormalTok{    \}}
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\NormalTok{x}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            [,1]       [,2]       [,3] [,4]       [,5]
+## [1,] 625.000000   2.449490   2.000000  289 169.000000
+## [2,]   4.690416  81.000000   1.414214  441   2.828427
+## [3,] 529.000000   4.242641   4.898979    1   3.464102
+## [4,] 121.000000 361.000000 225.000000   49   9.000000
+## [5,]   4.000000   4.472136   3.741657   25   3.162278
+\end{verbatim}
+
+\hypertarget{question-5-4-points}{%
+\subsection{\texorpdfstring{Question 5 (\emph{4
+points})}{Question 5 (4 points)}}\label{question-5-4-points}}
+
+The goal of this problem is to plot the graph of the probability density
+function of the normal distribution of the normal distribution with mean
+1 and standard deviation 0.5.
+
+To write this code, use the seq function to define a vector x of
+regularly spaced values between -2 and 4 by steps of 0.01.
+
+Then apply the function dnorm to x with appropriate arguments to
+calculate a vector y.
+
+Call the plot function on x and y. Use a line type and the title `Normal
+distribution pdf: N(1,0.5)'
+
+Finally use abline to overlay a vertical blue line that goes through
+x=1.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x }\OtherTok{=} \FunctionTok{seq}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{2}\NormalTok{, }\DecValTok{4}\NormalTok{, }\AttributeTok{by =} \FloatTok{0.01}\NormalTok{)}
+\NormalTok{y }\OtherTok{=} \FunctionTok{dnorm}\NormalTok{(x , }\AttributeTok{mean=}\DecValTok{4}\NormalTok{, }\AttributeTok{sd=} \FloatTok{2.5}\NormalTok{ )}
+\FunctionTok{plot}\NormalTok{(x,y, }\AttributeTok{main =} \StringTok{"Normal distribution pdf: N(1,0.5)"}\NormalTok{ )}
+\FunctionTok{abline}\NormalTok{(}\AttributeTok{v=}\DecValTok{1}\NormalTok{, }\AttributeTok{col=}\StringTok{\textquotesingle{}blue\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{A2-Summer2022_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+\end{document}
