@@ -1,7 +1,5 @@
 # statistical-computation
 
-# STAT 2450 Assignment 2
-
 ## Introduction
 This repository contains solutions for the STAT 2450 Assignment 2. The assignment focuses on various statistical computations and R programming.
 
